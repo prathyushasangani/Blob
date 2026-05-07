@@ -157,8 +157,9 @@ const html = String.raw`<!doctype html>
         text("ollama3:1b", 178, 304, 18, "#17212f", 700);
         text("Website or YouTube link", 160, 362, 16, "#617068", 700);
         fillRound(160, 392, 218, 44, 8, "#ffffff", "#d8e0ea");
-        const typed = "https://docs.example.com".slice(0, Math.floor(24 * progress));
-        text(typed, 176, 404, 16, "#17212f", 600);
+        const demoUrl = "https://docs.ollama.com/api";
+        const typed = demoUrl.slice(0, Math.floor(demoUrl.length * progress));
+        text(typed, 176, 405, 14, "#17212f", 700);
         text("Files", 160, 464, 16, "#617068", 700);
         fillRound(160, 494, 218, 58, 8, "#f5f7fb", "#d8e0ea");
         text("PDF  DOCX  TXT  MD", 178, 514, 15, "#617068", 700);
@@ -191,11 +192,11 @@ const html = String.raw`<!doctype html>
         const userShow = Math.min(1, progress * 2);
         const answerShow = Math.min(1, Math.max(0, progress * 2 - 0.8));
         ctx.globalAlpha = userShow;
-        fillRound(684, 236, 354, 76, 18, "#2563eb", null);
-        wrapped("What are the key points from this document?", 710, 254, 306, 25, 19, "#ffffff", 700);
+        fillRound(642, 236, 396, 84, 18, "#2563eb", null);
+        wrapped("What is Ollama's default local API URL?", 668, 254, 344, 25, 19, "#ffffff", 700);
         ctx.globalAlpha = answerShow;
-        fillRound(498, 354, 472, 138, 18, "#ffffff", "#e3e8f0");
-        wrapped("I found the most relevant chunks and answered only from the uploaded source. Local Ollama keeps the workflow private.", 526, 378, 416, 27, 20, "#17212f", 650);
+        fillRound(498, 354, 500, 150, 18, "#ffffff", "#e3e8f0");
+        wrapped("From the Ollama docs: after installation, the local API is served at http://localhost:11434/api.", 526, 378, 444, 28, 20, "#17212f", 650);
         ctx.globalAlpha = 1;
       }
 
@@ -205,11 +206,12 @@ const html = String.raw`<!doctype html>
         shell();
 
         if (t < 3.4) {
-          text("local-rag", 640, 214, 72, "#17211b", 900, "center");
-          wrapped("A local Streamlit app that reads websites, YouTube transcripts, PDFs, DOCX, TXT, MD, and CSV files.", 282, 318, 716, 32, 24, "#41534a", 600);
-          pill("Streamlit", 373, 442, "#1e5b4d");
-          pill("TF-IDF Retriever", 520, 442, "#147f8a");
-          pill("Ollama", 735, 442, "#d85d47");
+          text("local-rag", 640, 196, 68, "#17211b", 900, "center");
+          text("Ask questions from official docs", 640, 296, 34, "#17211b", 800, "center");
+          wrapped("Demo source: https://docs.ollama.com/api", 380, 356, 520, 30, 24, "#41534a", 650);
+          pill("Streamlit", 370, 456, "#1e5b4d");
+          pill("TF-IDF Retriever", 516, 456, "#147f8a");
+          pill("Ollama", 732, 456, "#d85d47");
         } else if (t < 7.6) {
           const p = ease((t - 3.4) / 4.2);
           sidebar(p);
@@ -227,7 +229,7 @@ const html = String.raw`<!doctype html>
           text("3. Ask locally", 640, 186, 34, "#17211b", 850, "center");
         } else {
           text("Private knowledge. Local answers.", 640, 238, 54, "#17211b", 900, "center");
-          wrapped("local-rag connects document reading, retrieval, and Ollama into one practical RAG workflow.", 288, 334, 704, 34, 26, "#41534a", 600);
+          wrapped("local-rag connects official docs, retrieval, and Ollama into one practical RAG workflow.", 288, 334, 704, 34, 26, "#41534a", 600);
           fillRound(493, 458, 294, 58, 8, "#1e5b4d", null);
           text("View project on GitHub", 640, 474, 22, "#ffffff", 850, "center");
         }

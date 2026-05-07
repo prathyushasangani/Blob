@@ -434,7 +434,7 @@ h3 {
   border: 1px solid #dce5ef;
   border-radius: 8px;
   background: #13231f;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .project-type {
@@ -447,6 +447,17 @@ h3 {
 
 .project-card p:last-child {
   color: var(--muted);
+}
+
+.project-demo-note {
+  color: var(--muted);
+}
+
+.project-demo-note a {
+  color: var(--teal);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .project-tags {
