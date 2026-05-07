@@ -73,6 +73,7 @@ const html = String.raw`<!doctype html>
       function wrapped(value, x, y, maxWidth, lineHeight, size, color, weight = 500) {
         ctx.font = weight + " " + size + "px Inter, Arial, sans-serif";
         ctx.fillStyle = color;
+        ctx.textAlign = "left";
         ctx.textBaseline = "top";
         const words = value.split(" ");
         let line = "";
@@ -219,8 +220,8 @@ const html = String.raw`<!doctype html>
           text("1. Add knowledge", 640, 186, 34, "#17211b", 850, "center");
         } else if (t < 11.6) {
           const p = ease((t - 7.6) / 4);
-          text("2. Chunk, index, and retrieve", 640, 206, 40, "#17211b", 850, "center");
-          wrapped("Text is cleaned into overlapping chunks. A small TF-IDF retriever scores the best context for each question.", 280, 272, 720, 30, 23, "#41534a", 600);
+          text("2. Chunk, index, and retrieve", 640, 204, 38, "#17211b", 850, "center");
+          wrapped("Text is cleaned into overlapping chunks. A small TF-IDF retriever scores the best context for each question.", 254, 268, 772, 30, 22, "#41534a", 600);
           pipeline(p);
         } else if (t < 16.2) {
           const p = ease((t - 11.6) / 4.6);
